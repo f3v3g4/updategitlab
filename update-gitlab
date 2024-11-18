@@ -1,0 +1,189 @@
+****************************************************
+      Update gitlab 16.5.1 a 16.8.2
+****************************************************
+
+Descargar repo gitlab-ce-16.6.7-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash  
+
+Instarlar la nueva version
+yum install gitlab-ce-16.6.7-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+----------------------------------------------------------------------------------------------------
+
+Descargar repo gitlab-ce-16.7.5-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+yum install gitlab-ce-16.7.5-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+-----------------------------------------------------------------------------------------------------
+
+Descargar repo gitlab-ce-16.8.2-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-16.8.2-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+-----------------------------------------------------------------------------------------------------
+Descargar repo gitlab-ce-16.9.1-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-16.9.2-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+
+------------------------------------------------------------------------------------------------------
+                                            Update - 2024
+------------------------------------------------------------------------------------------------------
+
+gpg.key
+-------------------------------------------------------------------------------------------------------
+* Eliminar cualquier clave existente de los llaveros del repositorio:
+
+for pubring in /var/cache/dnf/gitlab_gitlab-?e-*/pubring
+ do
+   gpg --homedir $pubring --delete-key F6403F6544A38863DAA0B6E03F01618A51312F3F
+ done
+
+
+* Actualice los datos/caché del repositorio, que le solicita que confirme las claves:
+
+dnf check-update
+
+
+* Descargue la nueva clave e impórtela
+
+curl "https://gitlab-org.gitlab.io/omnibus-gitlab/gitlab_new_gpg.key" -o /tmp/omnibus_gitlab_gpg.key
+
+sudo rpm --import /tmp/omnibus_gitlab_gpg.key
+
+------------------------------------------------------------------------------------------------------
+
+sudo gitlab-ctl stop
+
+Desacargar repo gitlab-ce-16.9.11-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-16.9.11-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+------------------------------------------------------------------------------------------------------
+sudo gitlab-ctl stop
+
+Desacargar repo gitlab-ce-16.10.10-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-16.10.10-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+------------------------------------------------------------------------------------------------------
+sudo gitlab-ctl stop
+
+Desacargar repo gitlab-ce-16.11.0-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-16.11.0-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+-------------------------------------------------------------------------------------------------------
+
+sudo gitlab-ctl stop
+
+Desacargar repo gitlab-ce-16.11.10-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-16.11.10-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+--------------------------------------------------------------------------------------------------------
+sudo gitlab-ctl stop
+
+Desacargar repo gitlab-ce-17.3.4-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-17.3.4-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+---------------------------------------------------------------------------------------------------------
+
+sudo gitlab-ctl stop
+
+Desacargar repo gitlab-ce-17.4.1-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-17.4.1-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+--------------------------------------------------------------------------------------------------------
+Desacargar repo gitlab-ce-17.4.2-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-17.4.2-ce.0.el9.x86_64
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+-------------------------------------------------------------------------------------------------------
+
+Descargar gitlab-ce-17.5.2-ce.0.el9.x86_64.rpm
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+
+Instarlar la nueva version
+sudo yum install gitlab-ce-17.5.2-ce.0.el9.x86_64
+
+
+Reiniciar gitlab
+gitlab-ctl restart
+
+
+******************************************************************************************************
+              				Update Gitlab-runner
+******************************************************************************************************
+
+Detener servicio gitlab-runner
+sudo gitlab-runner stop
+
+Descargue el binario para reemplazar el ejecutable de GitLab Runner.
+sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+
+Dale permisos para ejecuta
+sudo chmod +x /usr/local/bin/gitlab-runner
+
+niciar el servicio
+sudo gitlab-runner start
+
+
+
+
+
+
